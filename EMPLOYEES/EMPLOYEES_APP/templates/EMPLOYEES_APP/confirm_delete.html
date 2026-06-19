@@ -1,0 +1,15 @@
+{% extends 'employees/base.html' %}
+
+{% block title %}Удаление сотрудника{% endblock %}
+
+{% block content %}
+    <h1>Удалить сотрудника?</h1>
+    <p>Вы уверены, что хотите удалить сотрудника <strong>"{{ object }}"</strong>?</p>
+    <p><small>Это действие нельзя отменить.</small></p>
+    
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Да, удалить</button>
+        <a href="{% url 'index' %}" class="btn btn-secondary">Нет, отмена</a>
+    </form>
+{% endblock %}
